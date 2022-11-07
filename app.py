@@ -8,9 +8,14 @@ st.title ("NFL Games Streamlit App")
 scatter = alt.Chart(data, title = "Wind vs Total Score since 2000").mark_point().encode(
     x = 'wind',
     y='total'
-    #tooltip = ['x','y']
 )
 st.altair_chart(scatter, use_container_width=True)
+
+scatter2 = alt.Chart(data, title = "Temperature vs Total Score since 2000").mark_point().encode(
+    x = 'temp',
+    y='total'
+)
+st.altair_chart(scatter2, use_container_width=True)
 
 teams = data["home_team"].sort_values().unique()
 team = st.selectbox('Pick your favorite team',teams) 
